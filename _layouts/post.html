@@ -20,6 +20,21 @@ layout: default
    </div>
  </div>
  
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ 
+  <script type="text/javascript">
+    function loadComments(data) {
+     // ...
+    }
+  
+    $.ajax("https://api.github.com/repos/kiyengar27/kiyengar27.github.io/issues/{{page.commentIssueId}}/comments", {
+      headers: {Accept: "application/vnd.github.full+json"},
+     success: function(msg){
+       loadComments(msg);
+    }
+   });
+ </script>
+ 
 
   {% include disqus.html %}
  
